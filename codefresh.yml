@@ -1,22 +1,15 @@
-version: "1.0"
-
-stages:
-  - "checkout"
-  - "build"
-
+version: '1.0'
 steps:
-  checkout:
-    type: "git-clone"
-    description: "Cloning main repository..."
-    repo: "${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}"
-    revision: "${{CF_REVISION}}"
-    stage: "checkout"
-
-  build:
-    title: Installing Dependencies
-    type: freestyle
-    arguments:
-      image: 'ubuntu:latest'
-      commands:
-        - apt update -qq && apt install -qy composer
-        - composer install
+  main_clone:
+    title: Cloning main repository...
+    type: git-clone
+    repo: 'codefresh-contrib/php-composer-sample-app'
+    revision: master
+    git: github
+  MyAppDockerImage:
+    title: Building Docker Image
+    type: build
+    image_name: my-php-image
+    working_directory: ./
+    tag: master
+    dockerfile: Dockerfile
