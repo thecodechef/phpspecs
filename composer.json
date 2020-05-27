@@ -1,0 +1,27 @@
+{
+    "name": "jeremy/phpspecs",
+    "type": "project",
+    "require": {
+        "phpspec/phpspec": "^6.1",
+        "karriere/phpspec-matchers": "^3.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Bolding",
+            "email": "cyberchefjay@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require-dev": {
+        "drupol/phpspec-annotation": "^1.2"
+    }
+}
